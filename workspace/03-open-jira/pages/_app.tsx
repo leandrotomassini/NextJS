@@ -1,20 +1,19 @@
-import '../styles/globals.css';
-import { ThemeProvider } from '@emotion/react';
-import { CssBaseline, createTheme } from '@mui/material';
 import type { AppProps } from 'next/app';
+import { ThemeProvider } from '@emotion/react';
+import { CssBaseline } from '@mui/material';
 
-const basicTheme = createTheme({
-  palette: {
-    mode: 'dark'
-  }
-});
+import { UIProvider } from '../context/ui';
+import '../styles/globals.css';
+import { darkTheme, lightTheme } from '../themes';
 
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={basicTheme}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <UIProvider>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </UIProvider>
   );
 }
