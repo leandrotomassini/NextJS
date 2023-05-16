@@ -1,7 +1,10 @@
 import { FC } from "react";
+import { useRouter } from "next/router";
 import { Grid, Card, Row, Text } from "@nextui-org/react";
 
-import { SmallPokemon } from "../../interfaces";
+import { PokemonListResponse, SmallPokemon } from "../../interfaces";
+import { pokeApi } from "../../api";
+import { getHeapStatistics } from "v8";
 
 
 interface Props {
@@ -9,12 +12,24 @@ interface Props {
 }
 
 
-export const PokemonCard: FC<Props> = ({ pokemon }) => {
+const PokemonCard: FC<Props> = ({ pokemon }) => {
+
     const { id, img, name } = pokemon;
+
+    const router = useRouter();
+
+    const onClick = () => {
+        router.push(`/pokemon/${pokemon.id}`);
+    }
+
 
     return (
         <Grid xs={6} sm={3} md={2} xl={1}>
-            <Card isHoverable isPressable>
+            <Card
+                onClick={onClick}
+                isHoverable
+                isPressable
+            >
                 <Card.Body css={{ p: 1 }}>
                     <Card.Image
                         src={img}
@@ -36,3 +51,6 @@ export const PokemonCard: FC<Props> = ({ pokemon }) => {
         </Grid>
     )
 }
+
+
+export default PokemonCard;

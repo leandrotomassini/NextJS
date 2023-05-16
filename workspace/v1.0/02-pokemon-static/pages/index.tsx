@@ -3,9 +3,10 @@ import { Grid } from '@nextui-org/react';
 
 import { pokeApi } from '../api';
 import { Layout } from '../components/layouts';
-import { PokemonCard } from '../components/pokemon';
+
 
 import { PokemonListResponse, SmallPokemon } from '../interfaces';
+import PokemonCard from '../components/pokemon/PokemonCard';
 
 interface Props {
   pokemons: SmallPokemon[];
@@ -34,8 +35,6 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=151');
-
-  console.log({ data });
 
   const pokemons: SmallPokemon[] = data.results
     .map((poke, i) => ({

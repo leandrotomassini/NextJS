@@ -1,2 +1,1 @@
-export { PokemonCard } from "./PokemonCard";
-
+export * from './PokemonCard';
