@@ -91,6 +91,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@types/canvas-confetti@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@types/canvas-confetti/-/canvas-confetti-1.6.2.tgz#69474d32271f347ff291ccde23268ecc3e426961"
+  integrity sha512-ozy7d+7AmYnPEgzdGwwAIA0/yLHnT9YBUQAOm5Ucu+P2ptxq2P464SZDVzYp71wD10ZPYckyeC665bPxQM78kw==
+
 "@types/node@^20":
   version "20.8.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.10.tgz#a5448b895c753ae929c26ce85cab557c6d4a365e"
@@ -149,6 +154,11 @@ caniuse-lite@^1.0.30001406:
   version "1.0.30001559"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001559.tgz#95a982440d3d314c471db68d02664fb7536c5a30"
   integrity sha512-cPiMKZgqgkg5LY3/ntGeLFUpi6tzddBNS58A4tnTgQw1zON7u2sZMU7SzOeVH4tj20++9ggL+V6FDOFMTaFFYA==
+
+canvas-confetti@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.9.0.tgz#03a9fa528b47bd37a127af216828e67894a60b0a"
+  integrity sha512-0UGU/T5Un/Cd4Aj4fu/p/oVQm8Il+brK5xcmY+y77u7PXuyNJD4ODUWe01A5o3GUI9Bb8lOBlQ10VdaDsY1FBA==
 
 client-only@0.0.1:
   version "0.0.1"

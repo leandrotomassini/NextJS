@@ -27,19 +27,17 @@ export const NavBar = () => {
                 priority
             />
 
-            <NextLink href="/" passHref>
-                <Link>
-                    <Text color='white' h2>P</Text>
-                    <Text color='white' h3>okémon</Text>
-                </Link>
+            <NextLink href="/" passHref style={{
+                display: 'flex'
+            }}>
+                <Text color='white' h2>P</Text>
+                <Text color='white' h3>okémon</Text>
             </NextLink>
 
             <Spacer css={{ flex: 1 }} />
 
             <NextLink href="/favorites" passHref>
-                <Link>
-                    <Text color='white'>Favoritos</Text>
-                </Link>
+                <Text color='white'>Favoritos</Text>
             </NextLink>
         </div>
     )
