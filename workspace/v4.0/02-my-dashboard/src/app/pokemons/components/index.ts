@@ -1,0 +1,1 @@
+export { PokemonGrid } from './PokemonGrid';
