@@ -1,42 +1,52 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { useAppDispatch, useAppSelector } from '@/store';
+import { addOne, initCounterState, substractOne } from '@/store/counter/counterSlice';
 
 interface Props {
     value?: number;
 }
 
+export interface CounterResponse {
+    method: string;
+    count: number;
+}
+
+const getApiCounter = async (): Promise<CounterResponse> => {
+    const data = await fetch('/api/counter').then(res => res.json());
+    return data;
+}
 
 export const CartCounter = ({ value = 0 }: Props) => {
 
-    const [counter, setCounter] = useState(value);
+    const count = useAppSelector(state => state.counter.count);
+    const dispatch = useAppDispatch();
 
-    const toggleCounter = (value: number) => {
+    useEffect(() => {
+        getApiCounter()
+            .then(({ count }) => dispatch(initCounterState(count)))
+    }, [dispatch]);
 
-        let counterValue = counter + value;
-
-        (counterValue < 0)
-            ? setCounter(0)
-            : setCounter(counterValue)
-    }
 
     return (
         <>
             <span className="text-9xl">
-                {counter}
+                {count}
             </span>
 
             <div className="flex">
 
                 <button
                     className="flex items-center justify-center p-2 rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] mr-2"
-                    onClick={() => toggleCounter(1)}
+                    onClick={() => dispatch(addOne())}
                 >
                     +1
                 </button>
 
                 <button
                     className="flex items-center justify-center p-2 rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] mr-2"
-                    onClick={() => toggleCounter(-1)}
+                    onClick={() => dispatch(substractOne())}
                 >
                     -1
                 </button>
