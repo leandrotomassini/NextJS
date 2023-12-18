@@ -29,7 +29,6 @@ export async function GET(request: Request) {
     });
 }
 
-
 const postSchema = yup.object({
     description: yup.string().required(),
     complete: yup.boolean().optional().default(false),

@@ -1,28 +1,22 @@
 'use client';
 import { FormEvent, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { IoTrashOutline } from 'react-icons/io5';
 
-import * as todosApi from '@/todos/helpers/todos';
+import { addTodo, deleteCompleted } from '../actions/todo-actions';
+
 
 
 export const NewTodo = () => {
 
-    const router = useRouter();
+
     const [description, setDescription] = useState('');
 
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault();
         if (description.trim().length === 0) return;
 
-        todosApi.createTodo(description);
+        await addTodo(description);
         setDescription('');
-        router.refresh();
-    }
-
-    const deleteCompleted = async () => {
-        todosApi.deleteCompletedTodos();
-        router.refresh();
     }
 
     return (
@@ -47,7 +41,7 @@ export const NewTodo = () => {
                     Borrar completados
                 </span>
             </button>
-
+ 
 
         </form>
     )
