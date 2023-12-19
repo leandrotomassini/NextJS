@@ -1,4 +1,7 @@
+
+
 export { Sidebar } from './Sidebar';
-export { Sidebaritem } from './Sidebaritem';
+export { SidebarItem } from './SidebarItem';
 export { TopMenu } from './TopMenu';
 export { WidgetItem } from './WidgetItem';
+export { TabBar } from './TabBar';

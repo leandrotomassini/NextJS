@@ -1,54 +1,66 @@
-import { Todo } from '@prisma/client';
+import { Todo } from "@prisma/client";
 
-const sleep = (seconds: number = 0): Promise<boolean> => {
+
+const sleep = (seconds: number = 0):Promise<boolean> => {
     return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(true);
-        }, seconds * 1000)
+      setTimeout(() => {
+        resolve(true)
+      }, seconds * 1000 );
     })
 }
 
-export const updateTodo = async (id: string, complete: boolean): Promise<Todo> => {
 
-    await sleep(2);
 
-    const body = { complete };
 
-    const todo = await fetch(`/api/todos/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify(body),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json());
+export const updateTodo = async( id: string, complete: boolean ):Promise<Todo> => {
 
-    return todo;
+  // TODO: 
+  // await sleep(2);
+
+  const body = { complete };
+
+  const todo = await fetch(`/api/todos/${ id }`,{
+    method: 'PUT',
+    body: JSON.stringify( body ),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then( res => res.json() );
+  
+  console.log({todo});
+
+  return todo;
 }
 
-export const createTodo = async (description: string): Promise<Todo> => {
 
-    const body = { description };
+export const createTodo = async( description: string ):Promise<Todo> => {
 
-    const todo = await fetch(`/api/todos`, {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json());
+  const body = { description };
 
-    return todo;
+  const todo = await fetch('/api/todos',{
+    method: 'POST',
+    body: JSON.stringify( body ),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then( res => res.json() );
+  
+  console.log({todo});
+
+  return todo;
 }
 
-export const deleteCompletedTodos = async (): Promise<boolean> => {
+export const deleteCompletedTodos = async():Promise<boolean> => {
 
 
-    await fetch(`/api/todos`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json());
+  await fetch('/api/todos',{
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then( res => res.json() );
+  
 
-    return true;
+  return true;
 }
+
