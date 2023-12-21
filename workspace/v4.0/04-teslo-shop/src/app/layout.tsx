@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
+import { inter } from '@/config/fonts';
+
+
 
 import './globals.css';
 
 
+
 export const metadata: Metadata = {
   title: 'Teslo | Shop',
-  description: 'La tienda oficial de Teslo. Compre conectores de pared, cargadores, adaptadores, accesorios para vehículos y productos, artículos de colección y ropa de la marca Teslo.',
+  description: 'Una tienda virtual de productos',
 }
 
 export default function RootLayout({
@@ -14,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <body>{children}</body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
