@@ -2,7 +2,7 @@ export interface Product {
   //todo: id: string;
   description: string;
   images: string[];
-  inStock: number;
+  inStock?: number;
   price: number;
   sizes: Size[];
   slug: string;

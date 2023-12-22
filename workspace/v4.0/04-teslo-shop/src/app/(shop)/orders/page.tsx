@@ -4,7 +4,7 @@ import { Title } from '@/components';
 import Link from 'next/link';
 import { IoCardOutline } from 'react-icons/io5';
 
-export default function OrdersPage() {
+export default function() {
   return (
     <>
       <Title title="Orders" />

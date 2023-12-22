@@ -21,7 +21,7 @@ interface Props {
 }
 
 
-export default function OrderByIdPage( { params }: Props ) {
+export default function ( { params }: Props ) {
 
   const { id } = params;
 
