@@ -34,6 +34,7 @@ interface Props {
 export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
 
   const router = useRouter();
+
   const { handleSubmit, register, formState: { isValid }, reset } = useForm<FormInputs>({
     defaultValues: {
       ...(userStoredAddress as any),
@@ -56,8 +57,6 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
     }
   },[])
   
-
-
 
 
   const onSubmit = async( data: FormInputs ) => {

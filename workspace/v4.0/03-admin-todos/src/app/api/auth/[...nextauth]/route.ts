@@ -55,12 +55,10 @@ export const authOptions:NextAuthOptions = {
   callbacks: {
 
     async signIn({ user, account, profile, email, credentials }) {
-      // console.log({user});
       return true;
     },
 
     async jwt({ token, user, account, profile }) {
-      // console.log({ token });
       const dbUser = await prisma.user.findUnique({ where: { email: token.email ?? 'no-email' } });
       if ( dbUser?.isActive === false ) {
         throw Error('Usuario no está activo');
